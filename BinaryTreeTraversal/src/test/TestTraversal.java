@@ -24,7 +24,7 @@ public class TestTraversal {
 		String postOrder = "8dc94ab526731";
 		String levelOrder = "123456789abcd";
 		String morrisInOrder = inOrder;
-		String[] expected = new String[] {preOrder, preOrder, inOrder, inOrder, postOrder, postOrder, levelOrder, morrisInOrder};
+		String[] expected = new String[] {preOrder, preOrder, inOrder, inOrder, postOrder, postOrder, levelOrder, morrisInOrder, postOrder};
 		
 		BinaryTree binaryTree = new BinaryTree();
 		Map<Character, List<Character>> root = new HashMap<> ();

@@ -78,15 +78,16 @@ public class BinaryTree {
 	public String[] traversal(Map<Character, List<Character>> root, Map<Character, List<Character>> input) {
 		this.buildBinaryTree(root, input);
 		
-		Traversal[] instances = new Traversal[8];
+		Traversal[] instances = new Traversal[9];
 		instances[0] = new PreOrderIterativeTraversal();
 		instances[1] = new PreOrderSequentialTraversal();
 		instances[2] = new InOrderIterativeTraversal();
 		instances[3] = new InOrderSequentialTraversal();
 		instances[4] = new PostOrderIterativeTraversal();
-		instances[5] = new PostOrderSequentialTraversal();
+		instances[5] = new PostOrderSequentialTraversalVersionOne();
 		instances[6] = new LevelOrderTraversal();
 		instances[7] = new MorrisInOrderTraversal();
+		instances[8] = new PostOrderSequentialTraversalVersionTwo();
 		String[] result = new String[instances.length];
 		
 		for (int i = 0; i < instances.length; i++) {

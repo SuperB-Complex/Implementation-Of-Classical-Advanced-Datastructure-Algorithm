@@ -1,7 +1,19 @@
 package solution;
 
 public class MorrisInOrderTraversal implements Traversal {
+	
+	@Override
 	public String traversal(Node root) {
+		/*
+		 * using right node of leaf node in a binary tree to reduce extra space
+		 * 
+		 * N is the number of nodes in a binary tree
+		 * 
+		 * time complexity: O(N)
+		 * 
+		 * space complexity: O(1)
+		 * */
+		
 		StringBuilder result = new StringBuilder();
 		Node prev = null;
 		while (root != null) {

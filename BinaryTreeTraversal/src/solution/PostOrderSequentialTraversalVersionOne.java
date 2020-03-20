@@ -2,7 +2,7 @@ package solution;
 
 import java.util.Stack;
 
-public class InOrderSequentialTraversal implements Traversal  {
+public class PostOrderSequentialTraversalVersionOne implements Traversal {
 	
 	@Override
 	public String traversal(Node root) {
@@ -18,18 +18,29 @@ public class InOrderSequentialTraversal implements Traversal  {
 		
 		StringBuilder result = new StringBuilder();
 		Stack<Node> stack = new Stack<> ();
+		Node prev = null;
 		
-		while (root != null || !stack.isEmpty()) {
-			if (root != null) {
-				stack.push(root);
-				root = root.getLeft();
-			} else {
-				root = stack.pop();
-				result.append(root.getName());
-				root = root.getRight();
-			}
+		while (root != null) {
+			stack.push(root);
+			root = root.getLeft();
 		}
 		
+		while (!stack.isEmpty()) {
+			root = stack.pop();
+			if (root.getRight() == null || root.getRight() == prev) {
+				result.append(root.getName());
+				prev = root;
+			} else {
+				stack.push(root);
+				root = root.getRight();
+				
+				while (root != null) {
+					stack.push(root);
+					root = root.getLeft();
+					
+				}
+			}
+		}
 		return result.toString();
 	}
 }
